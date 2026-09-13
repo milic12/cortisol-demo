@@ -47,9 +47,21 @@ html[dir="rtl"] {
 [data-sonner-toaster] {
   position: fixed;
   width: var(--width);
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Helvetica Neue,
+    Arial,
+    Noto Sans,
+    sans-serif,
+    Apple Color Emoji,
+    Segoe UI Emoji,
+    Segoe UI Symbol,
+    Noto Color Emoji;
   --gray1: hsl(0, 0%, 99%);
   --gray2: hsl(0, 0%, 97.3%);
   --gray3: hsl(0, 0%, 95.1%);
@@ -101,7 +113,11 @@ html[dir="rtl"] {
   opacity: 0;
   transform: var(--y);
   touch-action: none;
-  transition: transform 0.4s, opacity 0.4s, height 0.4s, box-shadow 0.2s;
+  transition:
+    transform 0.4s,
+    opacity 0.4s,
+    height 0.4s,
+    box-shadow 0.2s;
   box-sizing: border-box;
   outline: 0;
   overflow-wrap: anywhere;
@@ -122,7 +138,9 @@ html[dir="rtl"] {
 }
 
 [data-sonner-toast]:focus-visible {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    0 0 0 2px rgba(0, 0, 0, 0.2);
 }
 
 [data-sonner-toast][data-y-position="top"] {
@@ -211,7 +229,9 @@ html[dir="rtl"] {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  transition: opacity 0.4s, box-shadow 0.2s;
+  transition:
+    opacity 0.4s,
+    box-shadow 0.2s;
 }
 
 [data-sonner-toast][data-styled="true"] [data-button]:focus-visible {
@@ -251,12 +271,17 @@ html[dir="rtl"] {
   border-radius: 50%;
   cursor: pointer;
   z-index: 1;
-  transition: opacity 0.1s, background 0.2s, border-color 0.2s;
+  transition:
+    opacity 0.1s,
+    background 0.2s,
+    border-color 0.2s;
   padding: 0;
 }
 
 [data-sonner-toast][data-styled="true"] [data-close-button]:focus-visible {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    0 0 0 2px rgba(0, 0, 0, 0.2);
 }
 
 [data-sonner-toast][data-styled="true"] [data-disabled="true"] {
@@ -355,7 +380,9 @@ html[dir="rtl"] {
 [data-sonner-toast][data-removed="true"][data-front="false"][data-swipe-out="false"][data-expanded="false"] {
   --y: translateY(40%);
   opacity: 0;
-  transition: transform 0.5s, opacity 0.2s;
+  transition:
+    transform 0.5s,
+    opacity 0.2s;
 }
 
 [data-sonner-toast][data-removed="true"][data-front="false"]::before {
@@ -688,7 +715,9 @@ html[dir="rtl"] {
   left: 50%;
   transform: translate(-50%, -50%);
   transform-origin: center;
-  transition: opacity 0.2s, transform 0.2s;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
 }
 
 .sonner-loader[data-visible="false"] {
@@ -3621,6 +3650,11 @@ html[dir="rtl"] {
   padding: 1px;
 }
 
+.fk-col:has(.multi-swiper-carousel-container) {
+  width: 100%;
+  min-width: 0;
+}
+
 .fk-col.cc-selected {
   outline: 3px solid rgba(248, 186, 3, 1) !important;
 }
@@ -4726,7 +4760,7 @@ details[open] .fk-collapsible-list-content {
    ========================================================================== */
 
 .offer-selector {
-  max-width: 480px;
+  width: 100%;
   margin: 24px auto;
   font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   color: #2c1f14;
@@ -4753,7 +4787,10 @@ details[open] .fk-collapsible-list-content {
   font-weight: 600;
   color: #6b5040;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .offer-selector__toggle-btn.is-active {
@@ -4785,7 +4822,9 @@ details[open] .fk-collapsible-list-content {
   border-radius: 12px;
   background: #fdf8f5;
   cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
 }
 
 .offer-selector__tier:hover {
@@ -4879,7 +4918,9 @@ details[open] .fk-collapsible-list-content {
   text-align: center;
   opacity: 0.4;
   filter: grayscale(1);
-  transition: opacity 0.2s ease, filter 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    filter 0.2s ease;
 }
 
 .offer-selector__gift.is-unlocked {
