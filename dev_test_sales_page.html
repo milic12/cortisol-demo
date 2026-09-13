@@ -2301,6 +2301,104 @@
           </div>
         </section>
 
+        <!-- Offer Selector (added per Dev test brief) -->
+        <div x-data="offerSelector()" class="offer-selector">
+          <!-- Subscribe / One-time toggle -->
+          <div class="offer-selector__toggle">
+            <button
+              type="button"
+              class="offer-selector__toggle-btn"
+              :class="{ 'is-active': mode === 'subscribe' }"
+              @click="mode = 'subscribe'"
+            >
+              Subscribe &amp; Save
+              <span class="offer-selector__toggle-save">25%</span>
+            </button>
+            <button
+              type="button"
+              class="offer-selector__toggle-btn"
+              :class="{ 'is-active': mode === 'onetime' }"
+              @click="mode = 'onetime'"
+            >
+              One-time purchase
+            </button>
+          </div>
+
+          <!-- Tier cards -->
+          <div class="offer-selector__tiers">
+            <template x-for="tier in tiers" :key="tier.id">
+              <label
+                class="offer-selector__tier"
+                :class="{ 'is-selected': selected === tier.id }"
+              >
+                <span x-show="tier.popular" class="offer-selector__tier-badge"
+                  >Most Popular</span
+                >
+                <input
+                  type="radio"
+                  name="offer-tier"
+                  class="offer-selector__tier-radio"
+                  :value="tier.id"
+                  x-model="selected"
+                />
+                <span class="offer-selector__tier-body">
+                  <span
+                    class="offer-selector__tier-label"
+                    x-text="tier.label"
+                  ></span>
+                  <br />
+                  <span
+                    class="offer-selector__tier-save"
+                    x-show="savingsLabel(tier)"
+                    x-text="savingsLabel(tier)"
+                  ></span>
+                </span>
+                <span class="offer-selector__tier-prices">
+                  <span
+                    class="offer-selector__tier-price"
+                    x-text="priceLabel(tier)"
+                  ></span>
+                  <br />
+                  <span
+                    class="offer-selector__tier-compare"
+                    x-show="compareAtLabel(tier)"
+                    x-text="compareAtLabel(tier)"
+                  ></span>
+                </span>
+              </label>
+            </template>
+          </div>
+
+          <!-- Gift unlock row -->
+          <div class="offer-selector__gifts">
+            <div class="offer-selector__gifts-title">Free Gifts</div>
+            <div class="offer-selector__gifts-row">
+              <template x-for="gift in gifts" :key="gift.id">
+                <div
+                  class="offer-selector__gift"
+                  :class="{ 'is-unlocked': isGiftUnlocked(gift) }"
+                >
+                  <img :src="gift.img" :alt="gift.name" />
+                  <span
+                    class="offer-selector__gift-name"
+                    x-text="gift.name"
+                  ></span>
+                  <span
+                    x-show="isGiftUnlocked(gift)"
+                    class="offer-selector__gift-check"
+                    >✓ Unlocked</span
+                  >
+                </div>
+              </template>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <button type="button" class="offer-selector__cta" @click="addToCart">
+            Add to Cart — <span x-text="priceLabel(currentTier)"></span>
+          </button>
+        </div>
+
         <div
           data-loc="client/src/components/pdp/TrustTicker.tsx:145"
           class="bg-[#0D0A07] py-2 overflow-hidden border-t border-white/5"
