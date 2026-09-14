@@ -4928,30 +4928,57 @@ details[open] .fk-collapsible-list-content {
   filter: grayscale(0);
 }
 
-.offer-selector__gift img {
+.offer-selector__gift-img {
+  position: relative;
+  display: block;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 6px;
+}
+
+.offer-selector__gift-img img {
   width: 56px;
   height: 56px;
   border-radius: 8px;
   object-fit: cover;
-  margin-bottom: 6px;
+}
+
+.offer-selector__gift-lock {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  border-radius: 8px;
+  background: rgba(44, 31, 20, 0.72);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.offer-selector__gift-lock svg circle,
+.offer-selector__gift-lock svg path:last-child {
+  stroke: #2c1f14;
+}
+
+.offer-selector__gift-value {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: #8a8a8a;
+  text-decoration: line-through;
 }
 
 .offer-selector__gift-name {
   display: block;
   font-size: 11px;
-  font-weight: 600;
-  color: #2c1f14;
-  line-height: 1.3;
-}
-
-.offer-selector__gift-check {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 10.5px;
   font-weight: 700;
-  color: #31a24c;
-  margin-top: 2px;
+  color: #c45a4f;
+  line-height: 1.3;
 }
 
 /* CTA */

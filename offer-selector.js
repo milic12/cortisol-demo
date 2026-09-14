@@ -5,7 +5,6 @@ const TIERS = [
     unitsPaid: 1,
     unitsReceived: 1,
     popular: false,
-    freeShipping: false,
   },
   {
     id: "buy2",
@@ -13,7 +12,6 @@ const TIERS = [
     unitsPaid: 2,
     unitsReceived: 3,
     popular: true,
-    freeShipping: false,
   },
   {
     id: "buy3",
@@ -21,7 +19,6 @@ const TIERS = [
     unitsPaid: 3,
     unitsReceived: 5,
     popular: false,
-    freeShipping: true,
   },
 ];
 
@@ -32,17 +29,24 @@ const UNIT_PRICE = {
 
 const GIFTS = [
   {
-    id: "tracker",
-    name: "Cortisol Tracker Journal",
-    value: 24.99,
-    img: "https://placehold.co/96x96/F7F3EE/2C1F14?text=Journal",
-    unlocksAt: ["buy2", "buy3"],
-  },
-  {
     id: "pillcase",
     name: "On-the-Go Pill Case",
     value: 14.99,
-    img: "https://placehold.co/96x96/F7F3EE/2C1F14?text=Case",
+    img: "https://resilia.shop/cdn/shop/files/case_b9fcac89-db7d-432e-929d-adc786e209bd.png?v=1781280413&width=288",
+    unlocksAt: ["buy1", "buy2", "buy3"],
+  },
+  {
+    id: "tracker",
+    name: "Cortisol Tracker Journal",
+    value: 24.99,
+    img: "https://images.unsplash.com/photo-1517842645767-c639042777db?w=200&h=200&fit=crop&auto=format",
+    unlocksAt: ["buy2", "buy3"],
+  },
+  {
+    id: "shipping",
+    name: "Free Shipping",
+    value: 4.95,
+    img: "https://resilia.shop/cdn/shop/files/8161_1.png?v=1781284423&width=288",
     unlocksAt: ["buy3"],
   },
 ];
@@ -53,13 +57,19 @@ function money(n) {
 
 document.addEventListener("alpine:init", () => {
   Alpine.data("offerSelector", () => ({
-    mode: "subscribe", // 'subscribe' | 'onetime'
-    selected: "buy2", // default matches Resilia's "Most Popular" tier
+    mode: "subscribe",
+    selected: "buy2",
     tiers: TIERS,
     gifts: GIFTS,
 
     unitPrice() {
       return UNIT_PRICE[this.mode];
+    },
+
+    subscribeSavingsPercent() {
+      const onetime = UNIT_PRICE.onetime;
+      const subscribe = UNIT_PRICE.subscribe;
+      return Math.round(((onetime - subscribe) / onetime) * 100);
     },
 
     price(tier) {
@@ -96,8 +106,8 @@ document.addEventListener("alpine:init", () => {
       return gift.unlocksAt.includes(this.selected);
     },
 
-    hasAnyGiftUnlocked() {
-      return this.gifts.some((g) => this.isGiftUnlocked(g));
+    giftValueLabel(gift) {
+      return money(gift.value);
     },
 
     addToCart() {
