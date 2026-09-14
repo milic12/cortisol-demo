@@ -9,9 +9,11 @@
 
 ### The GitHub repo has the raw `dev_test_sales_page.html`, `dev_test_sales_page.css`, and `offer-selector.js`
 
-### if you'd rather read the code directly than click through the live page. You can also download the code straight from GitHub — either `git clone https://github.com/milic12/cortisol-demo.git`, or from the repo page use **Code → Download ZIP** to get the files without cloning.
+### if you'd rather read the code directly than click through the live page. You can also download the code straight from GitHub,
 
-## Page Review — Mistakes & Weird Stuff Found
+### either `git clone https://github.com/milic12/cortisol-demo.git`, or from the repo page use **Code → Download ZIP** to get the files without cloning.
+
+## Page Review Mistakes & Weird Stuff Found
 
 ### Compared against the untouched original file
 
